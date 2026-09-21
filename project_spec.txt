@@ -1,0 +1,547 @@
+BẢN THUYẾT MINH DỰ ÁN KHỞI NGHIỆP ĐỔI MỚI SÁNG TẠO
+Tên dự án: AGRiCARBON
+Ứng dụng số đo lường và tối ưu phát thải trong sản xuất nông nghiệp
+Slogan:“Đo đúng – Bón đúng – Giảm phát thải – Tăng giá trị”
+Lĩnh vực: Công nghệ nông nghiệp (AgriTech) – Công nghệ môi trường – Chuyển đổi số – Nông nghiệp xanh.
+Đối tượng trọng tâm: Nông hộ, hợp tác xã và doanh nghiệp sản xuất cây trồng lâu năm.
+Giai đoạn đầu: Cao su, điều và sầu riêng.
+I. TÓM TẮT DỰ ÁN
+Nông nghiệp đang đứng trước yêu cầu kép: duy trì năng suất, hiệu quả kinh tế đồng thời giảm tác động đến môi trường và phát thải khí nhà kính.
+Trong thực tế sản xuất, người nông dân thường có thông tin về lượng phân bón đã sử dụng nhưng chưa có một công cụ đơn giản giúp họ trả lời ba câu hỏi:
+	•	Vườn của tôi đang phát thải bao nhiêu? 
+	•	Nguồn phát thải chính đến từ đâu? 
+	•	Tôi cần thay đổi cách canh tác như thế nào để giảm phát thải mà vẫn đảm bảo năng suất và hiệu quả kinh tế? 
+AgriCarbon được đề xuất nhằm giải quyết khoảng trống này.
+AgriCarbon là một ứng dụng/nền tảng số cho phép nông dân nhập thông tin về vị trí, diện tích, loại cây, tuổi cây, năng suất, phân bón, lượng phân sử dụng, phương pháp bón, tưới tiêu và các hoạt động canh tác.
+Hệ thống sau đó thực hiện tính toán lượng phát thải theo phương pháp và hệ số phát thải phù hợp, quy đổi về CO₂ tương đương (CO₂e).
+Quan trọng hơn, AgriCarbon không chỉ đưa ra một con số phát thải mà còn phân tích nguồn phát thải và đưa ra các kịch bản canh tác thay thế, đặc biệt tập trung vào tối ưu sử dụng phân bón.
+Ví dụ:
+Hiện trạng: Vườn đang sử dụng lượng phân đạm cao và bón tập trung.
+AgriCarbon: Phân tích dữ liệu → xác định điểm có khả năng giảm phát thải → đề xuất điều chỉnh lượng phân, thời điểm và phương pháp bón → mô phỏng tác động đến chi phí và phát thải.
+Từ đó, AgriCarbon hướng tới biến “dữ liệu carbon” thành “hành động canh tác”.
+II. VẤN ĐỀ VÀ NHU CẦU THỊ TRƯỜNG
+2.1. Bài toán của người nông dân
+Trong sản xuất cây trồng lâu năm, phân bón là một trong những đầu vào quan trọng.
+Người nông dân phải quyết định:
+-Sử dụng loại phân nào
+-Sử dụng bao nhiêu
+-Bón vào thời điểm nào
+-Bón bao nhiêu lần
+-Phối hợp các loại phân như thế nào. 
+Tuy nhiên, quyết định này trong nhiều trường hợp vẫn phụ thuộc đáng kể vào:
+-Kinh nghiệm; 
+-Thói quen sản xuất; 
+-Điều kiện từng vùng; 
+-Khuyến cáo từ đại lý; 
+-Tình trạng sinh trưởng quan sát được. 
+Điều này tạo ra một vấn đề:
+-Bón thiếu có thể ảnh hưởng đến sinh trưởng và năng suất.
+-Bón thừa hoặc không phù hợp có thể làm tăng chi phí và gia tăng tác động môi trường.
+2.2. Bài toán về phát thải
+Khi nói đến giảm phát thải trong nông nghiệp, người nông dân thường gặp một vấn đề lớn:
+Khái niệm “carbon” khá trừu tượng nhưng quyết định sản xuất của họ lại rất cụ thể.
+Ví dụ:
+Người nông dân biết:
+“Tôi sử dụng 300 kg ure/ha/năm.”
+Nhưng họ không dễ dàng biết:
+“Lượng phân này đóng góp bao nhiêu vào phát thải của vườn?”
+Và càng khó trả lời:
+“Nếu thay đổi phương pháp bón thì phát thải giảm bao nhiêu và chi phí thay đổi như thế nào?”
+Đây chính là khoảng trống mà dự án hướng tới.
+III. GIẢI PHÁP CỦA DỰ ÁN
+AgriCarbon xây dựng một quy trình:
+NHẬP DỮ LIỆU → TÍNH TOÁN → PHÂN TÍCH → KHUYẾN NGHỊ → MÔ PHỎNG → THEO DÕI
+1. Nhập thông tin vườn
+Người dùng tạo hồ sơ cho từng vườn:
+	•	Địa chỉ/vị trí; 
+	•	Diện tích; 
+	•	Loại cây; 
+	•	Tuổi cây; 
+	•	Mật độ cây; 
+	•	Năng suất; 
+	•	Loại đất nếu có dữ liệu; 
+	•	Phương pháp tưới; 
+	•	Phương pháp canh tác. 
+2. Nhập thông tin phân bón
+Người dùng khai báo:
+	•	tên phân bón; 
+	•	loại phân; 
+	•	hàm lượng dinh dưỡng; 
+	•	lượng sử dụng; 
+	•	số lần bón; 
+	•	thời điểm bón; 
+	•	diện tích sử dụng. 
+Ví dụ:
+Sầu riêng – 2 ha
+Loại phân
+Lượng sử dụng
+Ure
+300 kg/ha/năm
+NPK
+500 kg/ha/năm
+Kali
+150 kg/ha/năm
+Phân hữu cơ
+2.000 kg/ha/năm
+
+IV. CÔNG NGHỆ VÀ CÁCH THỨC HOẠT ĐỘNG
+4.1. Mô hình công nghệ
+AgriCarbon có thể được xây dựng theo kiến trúc:
+Ứng dụng di động/Web App
+↓
+Cơ sở dữ liệu nông hộ – vườn
+↓
+Engine tính toán phát thải
+↓
+Cơ sở dữ liệu cây trồng – phân bón – hệ số phát thải
+↓
+Engine phân tích
+↓
+Hệ thống khuyến nghị
+↓
+Dashboard kết quả
+V. TÍNH MỚI VÀ ĐỔI MỚI SÁNG TẠO
+Đây là một trong những tiêu chí quan trọng nhất của cuộc thi. Một số thể lệ cuộc thi khởi nghiệp hiện nay chấm riêng tính mới, độc đáo, sáng tạo và lợi thế cạnh tranh của sản phẩm/dịch vụ. 
+AgriCarbon có thể tạo sự khác biệt ở 5 điểm.
+5.1. Từ “tính carbon” sang “hành động giảm carbon”
+Các công cụ carbon thông thường có thể trả lời:
+“Bạn phát thải bao nhiêu?”
+AgriCarbon hướng tới trả lời:
+“Bạn nên làm gì tiếp theo?”
+Đây là sự khác biệt cốt lõi.
+5.2. Cá nhân hóa theo từng vườn
+Thay vì đưa ra một khuyến nghị chung cho tất cả nông dân, hệ thống sử dụng dữ liệu:
+Cây + tuổi cây + diện tích + năng suất + phân bón + phương pháp canh tác
+để tạo ra khuyến nghị phù hợp hơn với từng trường hợp.
+5.3. Mô phỏng các kịch bản
+Người dùng có thể lựa chọn:
+“Nếu giảm lượng ure?”
+“Nếu chia thành nhiều lần bón?”
+“Nếu thay đổi tỷ lệ phân?”
+Hệ thống sẽ mô phỏng:
+Phát thải ↓
+Chi phí ↓/↑
+Lượng phân ↓/↑
+và trong các phiên bản phát triển cao hơn có thể xem xét tác động đến năng suất dựa trên dữ liệu khoa học phù hợp.
+5.4. Carbon + kinh tế
+Đây là điểm rất quan trọng.
+AgriCarbon không truyền tải thông điệp:
+“Hãy giảm phát thải vì môi trường.”
+Mà hướng tới:
+“Giảm phát thải đồng thời tối ưu chi phí và sử dụng đầu vào.”
+Điều này làm cho giải pháp gần với nhu cầu thực tế của nông dân hơn.
+5.5. Có khả năng mở rộng từ nông hộ đến doanh nghiệp
+Dữ liệu từ nhiều vườn có thể được tổng hợp thành:
+Nông hộ → Hợp tác xã → Vùng nguyên liệu → Doanh nghiệp
+Từ đó nền tảng có thể phát triển thành hệ thống quản lý dữ liệu phát thải cho toàn bộ vùng sản xuất.
+VI. SẢN PHẨM DỰ KIẾN
+Màn hình 1 – Trang chủ
+Hiển thị:
+Vườn của tôi
+	•	Tổng diện tích 
+	•	Loại cây 
+	•	Phát thải ước tính 
+	•	Chi phí phân bón 
+	•	Mức giảm phát thải 
+Màn hình 2 – Tạo vườn
+Người dùng nhập:
+Tên vườn Địa chỉ Diện tích Loại cây Tuổi cây
+Màn hình 3 – Quản lý phân bón
+Cho phép nhập:
+Ure NPK DAP Kali Phân hữu cơ Phân khác
+Màn hình 4 – Kết quả phát thải
+Ví dụ:
+Phát thải ước tính
+X tấn CO₂e/năm
+Phân bổ:
+	•	Phân bón: XX% 
+	•	Năng lượng: XX% 
+	•	Tưới tiêu: XX% 
+	•	Các nguồn khác: XX% 
+Màn hình 5 – “Giải pháp cho vườn của tôi”
+Ví dụ:
+Khuyến nghị 01
+Tối ưu lượng phân đạm
+Mức ưu tiên: Cao
+Khuyến nghị 02
+Chia nhỏ số lần bón
+Mức ưu tiên: Trung bình
+Khuyến nghị 03
+Điều chỉnh phương pháp bón
+Mức ưu tiên: Trung bình
+VII. TÍNH NĂNG ĐỘT PHÁ: “WHAT-IF”
+Đây là tính năng mình đề xuất đưa thành điểm nhấn khi thuyết trình trước ban giám khảo.
+Người dùng chọn:
+“Nếu tôi thay đổi phương án canh tác?”
+Hệ thống cho phép so sánh:
+
+Hiện tại
+Phương án đề xuất
+Lượng phân
+100%
+85%
+Chi phí
+100%
+90%
+Phát thải
+100%
+82%
+Số lần bón
+3
+4
+Các con số trên chỉ là minh họa giao diện, không phải kết quả khoa học áp dụng cho một loại cây cụ thể.
+Điểm quan trọng là hệ thống phải tách rõ số liệu tính toán theo phương pháp khoa học với số liệu minh họa, tránh tạo cảm giác app cam kết giảm phát thải/năng suất khi chưa có dữ liệu kiểm chứng.
+VIII. KHÁCH HÀNG MỤC TIÊU
+Nhóm 1 – Nông hộ
+Đặc biệt là:
+	•	hộ trồng cao su; 
+	•	hộ trồng điều; 
+	•	hộ trồng sầu riêng. 
+Nhóm 2 – Hợp tác xã
+AgriCarbon cung cấp dashboard quản lý:
+100 hộ 500 ha 1.000 ha
+và tổng hợp dữ liệu phát thải theo vùng.
+Nhóm 3 – Doanh nghiệp nông nghiệp
+Doanh nghiệp có vùng nguyên liệu có thể sử dụng nền tảng để:
+	•	quản lý vùng trồng; 
+	•	thu thập dữ liệu; 
+	•	theo dõi phát thải; 
+	•	xây dựng chương trình giảm phát thải; 
+	•	hỗ trợ báo cáo phát triển bền vững. 
+Nhóm 4 – Đối tác chuyên môn
+Có thể hợp tác với:
+	•	trường đại học; 
+	•	viện nghiên cứu; 
+	•	chuyên gia nông học; 
+	•	chuyên gia carbon; 
+	•	doanh nghiệp phân bón; 
+	•	tổ chức chứng nhận; 
+	•	doanh nghiệp công nghệ. 
+IX. THỊ TRƯỜNG VÀ CƠ HỘI
+Các cuộc thi khởi nghiệp nông nghiệp gần đây tại Việt Nam đang ưu tiên các dự án ứng dụng công nghệ số, giảm phát thải, tiết kiệm tài nguyên và tạo ra giá trị kinh tế – môi trường – xã hội. 
+Điều này tạo ra một bối cảnh thuận lợi cho AgriCarbon vì dự án nằm ở giao điểm của:
+Nông nghiệp + Chuyển đổi số + Carbon + Phát triển bền vững.
+Thay vì xây dựng một ứng dụng chỉ phục vụ người tiêu dùng, AgriCarbon có thể phát triển thành hạ tầng dữ liệu cho nông nghiệp phát thải thấp.
+X. MÔ HÌNH KINH DOANH
+AgriCarbon áp dụng mô hình:
+B2C + B2B + B2B2F
+B2C – Nông dân
+Gói miễn phí:
+	•	tạo vườn; 
+	•	tính toán cơ bản; 
+	•	một số khuyến nghị. 
+Gói nâng cao:
+	•	nhiều vườn; 
+	•	báo cáo; 
+	•	theo dõi lịch sử; 
+	•	mô phỏng; 
+	•	khuyến nghị chuyên sâu. 
+B2B – Doanh nghiệp
+Doanh nghiệp trả phí dựa trên:
+	•	số hộ; 
+	•	diện tích; 
+	•	số vùng nguyên liệu; 
+	•	số lượng tài khoản. 
+Đây có thể trở thành nguồn doanh thu chính.
+B2B2F – Doanh nghiệp → nông hộ
+Doanh nghiệp có thể tài trợ hoặc cung cấp AgriCarbon cho vùng nguyên liệu của mình.
+Ví dụ:
+Doanh nghiệp → AgriCarbon → 5.000 nông hộ → 20.000 ha
+Đây là mô hình có khả năng mở rộng tốt.
+XI. LỢI THẾ CẠNH TRANH
+AgriCarbon không cạnh tranh chỉ bằng việc:
+“Có một app tính CO₂.”
+Mà cạnh tranh bằng hệ sinh thái dữ liệu và khuyến nghị.
+Lợi thế 1
+Tập trung chuyên sâu vào cây trồng lâu năm.
+Lợi thế 2
+Kết hợp carbon + phân bón + chi phí.
+Lợi thế 3
+Khuyến nghị hành động thay vì chỉ báo cáo.
+Lợi thế 4
+Có khả năng tích lũy dữ liệu theo thời gian.
+Lợi thế 5
+Có thể mở rộng từ nông hộ → HTX → doanh nghiệp.
+XII. KẾ HOẠCH PHÁT TRIỂN
+Giai đoạn 1 – MVP
+0–6 tháng
+Tập trung vào:
+Cao su + điều + sầu riêng
+Xây dựng:
+	•	app; 
+	•	hồ sơ vườn; 
+	•	cơ sở dữ liệu; 
+	•	module phân bón; 
+	•	module tính phát thải cơ bản; 
+	•	dashboard; 
+	•	hệ thống khuyến nghị ban đầu. 
+Mục tiêu:
+100–300 vườn thử nghiệm
+XIII. GIAI ĐOẠN 2 – THỬ NGHIỆM THỰC TẾ
+6–12 tháng
+Triển khai tại một số vùng trồng.
+Thu thập:
+	•	dữ liệu đầu vào; 
+	•	lượng phân bón; 
+	•	phương pháp canh tác; 
+	•	năng suất; 
+	•	chi phí; 
+	•	phản hồi của nông dân. 
+Mục tiêu:
+Xây dựng bộ dữ liệu thực tế và kiểm chứng khả năng sử dụng của hệ thống.
+XIV. GIAI ĐOẠN 3 – THƯƠNG MẠI HÓA
+Năm thứ 2
+Mở rộng:
+	•	cà phê; 
+	•	hồ tiêu; 
+	•	ca cao; 
+	•	các cây trồng lâu năm khác. 
+Đồng thời phát triển:
+Dashboard doanh nghiệp
+và
+Dashboard hợp tác xã.
+XV. GIAI ĐOẠN 4 – NỀN TẢNG NÔNG NGHIỆP CARBON
+Năm thứ 3 trở đi
+AgriCarbon hướng tới trở thành:
+Nền tảng dữ liệu và quản lý phát thải cho vùng nguyên liệu nông nghiệp.
+Hệ thống có thể mở rộng sang:
+	•	truy xuất dữ liệu; 
+	•	quản lý vùng nguyên liệu; 
+	•	đánh giá phát thải; 
+	•	theo dõi mục tiêu giảm phát thải; 
+	•	báo cáo phát triển bền vững; 
+	•	kết nối các chương trình nông nghiệp xanh. 
+XVI. HIỆU QUẢ KINH TẾ
+Giá trị AgriCarbon tạo ra gồm ba tầng.
+Đối với nông dân
+Giảm lãng phí đầu vào
+↓
+Tối ưu chi phí
+↓
+Nâng cao khả năng quản lý vườn
+↓
+Giảm phát thải
+Đối với doanh nghiệp
+Có dữ liệu vùng nguyên liệu
+↓
+Quản lý sản xuất tốt hơn
+↓
+Theo dõi phát thải
+↓
+Nâng cao khả năng đáp ứng yêu cầu thị trường
+Đối với xã hội
+Nông nghiệp số
+	•	
+Nông nghiệp phát thải thấp
+	•	
+Sử dụng tài nguyên hiệu quả
+→
+Phát triển nông nghiệp bền vững
+XVII. TÁC ĐỘNG MÔI TRƯỜNG – XÃ HỘI
+Dự án không chỉ hướng tới doanh thu mà còn tạo ra tác động xã hội.
+Môi trường
+	•	giảm phát thải khí nhà kính; 
+	•	sử dụng phân bón hiệu quả hơn; 
+	•	tiết kiệm tài nguyên; 
+	•	thúc đẩy phương thức canh tác bền vững. 
+Kinh tế
+	•	giảm chi phí đầu vào; 
+	•	nâng cao hiệu quả sản xuất; 
+	•	tạo ra sản phẩm công nghệ mới; 
+	•	hình thành thị trường dịch vụ dữ liệu nông nghiệp. 
+Xã hội
+	•	hỗ trợ nông dân tiếp cận công nghệ; 
+	•	nâng cao năng lực quản lý sản xuất; 
+	•	thúc đẩy chuyển đổi số khu vực nông thôn. 
+XVIII. RỦI RO VÀ GIẢI PHÁP
+Một dự án khởi nghiệp tốt không nên chỉ nói về thành công, mà phải chứng minh đội ngũ hiểu rủi ro. Một số tiêu chí cuộc thi cũng đánh giá riêng hệ thống giám sát và kế hoạch ứng phó rủi ro. 
+Rủi ro
+Giải pháp
+Nông dân khó sử dụng app
+Thiết kế giao diện đơn giản
+Người dùng không có dữ liệu đầy đủ
+Cho phép nhập theo nhiều mức dữ liệu
+Dữ liệu không chính xác
+Kiểm tra, xác thực và cảnh báo
+Khuyến nghị chưa phù hợp
+Có chuyên gia nông học kiểm chứng
+Khác biệt giữa các vùng
+Xây dựng dữ liệu theo vùng
+Người dùng ngại trả phí
+Mô hình Freemium
+Khó xây dựng cơ sở dữ liệu ban đầu
+Thí điểm với HTX/doanh nghiệp
+Sai lệch trong tính phát thải
+Công khai phương pháp, phạm vi và mức độ bất định
+
+XIX. TÍNH KHẢ THI
+Dự án có tính khả thi vì có thể triển khai theo từng bước, không cần xây dựng toàn bộ hệ thống ngay từ đầu.
+MVP ban đầu chỉ cần:
+1. Cơ sở dữ liệu cây trồng
+	•	
+2. Cơ sở dữ liệu phân bón
+	•	
+3. Công cụ tính toán
+	•	
+4. Ứng dụng nhập dữ liệu
+	•	
+5. Hệ thống khuyến nghị cơ bản
+Sau khi thử nghiệm thành công mới mở rộng sang AI, IoT, ảnh vệ tinh và các nguồn dữ liệu khác.
+Đây là cách giảm rủi ro đầu tư ban đầu.
+XX. ĐỊNH HƯỚNG ỨNG DỤNG AI
+AI không nên được đưa vào dự án chỉ để tạo cảm giác “công nghệ cao”.
+AgriCarbon có thể sử dụng AI ở giai đoạn sau để:
+	•	phân tích dữ liệu nhiều mùa vụ; 
+	•	phát hiện bất thường; 
+	•	cá nhân hóa khuyến nghị; 
+	•	trợ lý AI cho nông dân; 
+	•	trả lời câu hỏi bằng ngôn ngữ tự nhiên; 
+	•	dự báo nhu cầu dinh dưỡng dựa trên dữ liệu lịch sử. 
+Ví dụ người nông dân hỏi:
+“Tôi có 2 ha sầu riêng 7 năm tuổi, tháng này nên bón phân thế nào?”
+AI có thể sử dụng dữ liệu của vườn + cơ sở tri thức nông học + dữ liệu lịch sử để đưa ra câu trả lời có căn cứ.
+AI là lớp thông minh phía trên hệ thống dữ liệu, không phải toàn bộ sản phẩm.
+XXI. LỢI THẾ MỞ RỘNG
+Sau khi thành công với cao su, điều và sầu riêng, nền tảng có thể mở rộng:
+Cao su
+↓
+Điều
+↓
+Sầu riêng
+↓
+Cà phê
+↓
+Hồ tiêu
+↓
+Ca cao
+↓
+Cây ăn quả lâu năm
+↓
+Nền tảng quản lý carbon cho nông nghiệp Việt Nam
+XXII. TẦM NHÌN
+Tầm nhìn 2030
+Trở thành một trong những nền tảng công nghệ hỗ trợ đo lường và giảm phát thải cho vùng sản xuất nông nghiệp tại Việt Nam.
+Sứ mệnh
+Đưa công nghệ carbon đến gần người nông dân, biến dữ liệu phát thải thành những quyết định canh tác đơn giản, thiết thực và có giá trị kinh tế.
+XXIII. ĐIỂM NHẤN ĐỂ THUYẾT PHỤC BAN GIÁM KHẢO
+Nếu phải cô đọng dự án thành một câu, mình đề xuất:
+“AgriCarbon không chỉ giúp nông dân biết mình phát thải bao nhiêu, mà giúp họ biết phải làm gì để giảm phát thải.”
+Và câu thứ hai:
+“Mỗi vườn có một dấu chân carbon – AgriCarbon giúp người nông dân nhìn thấy, quản lý và từng bước giảm dấu chân đó.”
+XXIV. BUSINESS MODEL CANVAS
+
+
+
+
+
+
+
+
+
+BUSINESS MODEL CANVAS – AGRiCARBON
+Ứng dụng đo lường và giảm phát thải trong nông nghiệp cây trồng lâu năm
+“Đo đúng – Bón đúng – Giảm phát thải – Tăng giá trị”
+
+
+ĐỐI TÁC CHÍNH
+Viện/trường đại học
+Chuyên gia nông học, đất & phân bón
+Chuyên gia Carbon/GHG
+Hợp tác xã nông nghiệp
+Doanh nghiệp phân hữu cơ, sinh học
+Doanh nghiệp nông nghiệp
+Đối tác công nghệ/GIS
+HOẠT ĐỘNG CHÍNH
+Phát triển App/Web
+Xây dựng dữ liệu cây trồng & phân bón
+Tính toán CO₂e
+Phân tích dữ liệu vườn
+Xây dựng hệ thống khuyến nghị
+Kiểm chứng công thức
+Thử nghiệm thực địa
+GIÁ TRỊ CUNG CẤP
+Đo lường phát thải theo từng vườn
+Xác định nguồn phát thải chính
+Tối ưu lượng, thời điểm & phương pháp bón
+Đề xuất phân hữu cơ phù hợp
+Đề xuất phân bón sinh học khi phù hợp
+Mô phỏng phương án giảm phát thải
+Theo dõi đồng thời chi phí đầu vào
+QUAN HỆ KHÁCH HÀNG
+Tự phục vụ qua App
+Hướng dẫn & hỗ trợ kỹ thuật
+Chatbot/AI hỗ trợ
+Tư vấn chuyên gia ở gói nâng cao
+Chăm sóc qua HTX/doanh nghiệp
+PHÂN KHÚC KHÁCH HÀNG
+Nông hộ: cao su, điều, sầu riêng
+Hợp tác xã
+Doanh nghiệp có vùng nguyên liệu
+Đơn vị tư vấn/chuyên môn
+NGUỒN LỰC CHÍNH
+Nền tảng App/Web & Cloud
+Engine tính phát thải
+Cơ sở dữ liệu & thuật toán
+Dữ liệu cây trồng, phân bón
+Đội ngũ công nghệ
+Chuyên gia nông học & Carbon
+Mạng lưới đối tác
+
+KÊNH
+Ứng dụng di động
+Website
+HTX & doanh nghiệp vùng nguyên liệu
+Đại lý/đối tác nông nghiệp
+Hội thảo & tập huấn
+Mạng xã hội
+Bán hàng trực tiếp B2B
+CƠ CẤU CHI PHÍ
+Phát triển App/Web & bảo trì
+Cloud, dữ liệu & bảo mật
+Nhân sự công nghệ
+Chuyên gia nông học/Carbon
+Nghiên cứu & kiểm chứng
+Thu thập dữ liệu thực địa
+Marketing, tập huấn & vận hành
+DÒNG DOANH THU
+Nông hộ: Gói Premium thuê bao tháng/năm
+HTX: SaaS theo số hộ/diện tích
+Doanh nghiệp: Phí nền tảng vùng nguyên liệu
+Dịch vụ: Báo cáo & phân tích dữ liệu
+Tích hợp API: Phí triển khai/tích hợp
+
+
+
+
+
+XXV. KẾT LUẬN
+AgriCarbon được xây dựng dựa trên một vấn đề thực tế của nông nghiệp: người nông dân cần nâng cao hiệu quả sử dụng đầu vào nhưng đồng thời phải thích ứng với yêu cầu ngày càng cao về sản xuất xanh và giảm phát thải.
+Dự án kết hợp:
+Nông nghiệp
+Công nghệ số
+Dữ liệu
+Carbon
+Tối ưu chi phí
+Điểm cốt lõi của AgriCarbon không nằm ở việc tạo thêm một công cụ tính toán phát thải, mà nằm ở việc biến kết quả tính toán thành các khuyến nghị cụ thể để người nông dân có thể hành động.
+Dự án có khả năng phát triển từ một ứng dụng hỗ trợ từng nông hộ thành nền tảng quản lý dữ liệu phát thải cho hợp tác xã, vùng nguyên liệu và doanh nghiệp nông nghiệp.
+Trong bối cảnh các cuộc thi khởi nghiệp nông nghiệp hiện nay ưu tiên các giải pháp có tính sáng tạo, hàm lượng công nghệ, tính ứng dụng, hiệu quả kinh tế và khả năng đóng góp cho nông nghiệp bền vững, AgriCarbon có sự phù hợp khá rõ với định hướng này.
+Tóm tắt công thức của app:
+1. Tính lượng Nitơ (N) từ phân bón
+N = Khối lượng phân bón × %N
+Ví dụ: 300 kg ure × 46% = 138 kg N
+2. Tính N₂O-N trực tiếp
+N₂O-N = N × EF
+Trong đó EF = hệ số phát thải N₂O.
+3. Đổi N₂O-N → N₂O
+N₂O = N₂O-N × 44/28
+4. Đổi N₂O → CO₂e
+CO₂e = N₂O × GWP100
+5. Tính phát thải điện
+CO₂e điện = Điện tiêu thụ (kWh) × Hệ số phát thải điện
+6. Tính phát thải nhiên liệu
+CO₂e nhiên liệu = Lượng nhiên liệu × Hệ số phát thải nhiên liệu
+7. Tổng phát thải của vườn
+Tổng CO₂e = CO₂e từ phân bón + điện + nhiên liệu + các nguồn phát thải khác
+Sau đó:
+Phát thải/ha = Tổng CO₂e ÷ Diện tích vườn
+
