@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
       )}
       
       <main className={`flex-grow ${isIntro ? '' : 'container mx-auto p-4 md:p-8'}`}>
-        <AnimatePresence mode="wait">
+        <> 
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 10 }}
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
           >
             {children}
           </motion.div>
-        </AnimatePresence>
+        </>
       </main>
 
       {!isIntro && (
@@ -321,7 +321,7 @@ const GardenDetailScreen = ({ gardens, updateGarden }) => {
 
       {/* Tab Content with Animation */}
       <div className="bg-transparent">
-        <AnimatePresence mode="wait">
+        <> 
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 20 }}
@@ -333,7 +333,7 @@ const GardenDetailScreen = ({ gardens, updateGarden }) => {
             {activeTab === 'emissions' && <EmissionsTab garden={garden} setActiveTab={setActiveTab} />}
             {activeTab === 'solutions' && <SolutionsTab garden={garden} />}
           </motion.div>
-        </AnimatePresence>
+        </>
       </div>
     </div>
   );
@@ -397,7 +397,7 @@ const FertilizerTab = ({ garden, updateGarden, setActiveTab }) => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <AnimatePresence>
+                <>
                   {garden.fertilizers.map((f) => (
                     <motion.div 
                       key={f.id} 
@@ -415,7 +415,7 @@ const FertilizerTab = ({ garden, updateGarden, setActiveTab }) => {
                       </button>
                     </motion.div>
                   ))}
-                </AnimatePresence>
+                </>
               </div>
             )}
           </div>
